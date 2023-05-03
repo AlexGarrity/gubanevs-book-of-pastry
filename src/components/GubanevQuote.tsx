@@ -3,7 +3,7 @@ import React from "react";
 function getRandomGubanevQuote() {
   let quote: string = null;
   fetch(
-    "https://gist.githubusercontent.com/AlexGarrity/f277b1ccd41b0a7fd07b992466d5727b/raw/f487536e0b9427581fcbdd0bd91840e02fb6266a/gubanev_quotes.jsonc"
+    "https://raw.githubusercontent.com/AlexGarrity/gubanevs-book-of-pastry/master/src/assets/gubanev_quotes.json"
   ).then((response) => {
     response.json().then((jsonValue: string[]) => {
       quote = jsonValue.at(Math.floor(Math.random() * jsonValue.length));
