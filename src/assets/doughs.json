@@ -1,0 +1,102 @@
+{
+  "Puff": {
+    "description": [
+      "Puff is a light dough made by combining flour, water, and butter, then folding and rolling out repeatedly",
+      "During cooking the butter melts creating pockets of air, which makes the pastry is light and flaky",
+      "The butter must be kept below 16&deg;C whilst preparing the dough",
+      "Puff pastry is used in making dishes like Croissants, Sausage Rolls, Pie, Strudel, and Turnovers"
+    ],
+    "stats": {
+      "shc_ratio": {
+        "flour": 1,
+        "butter": 1,
+        "water": 1
+      },
+      "target_temperature": 70,
+      "difficulty_class": 15
+    }
+  },
+  "Shortcrust": {
+    "description": [
+      "Shortcrust is a thicker dough made by rubbing together butter and flour to create large chunks, then usually shaped",
+      "The butter is kept in chunks so that it can melt to create large pockets of air",
+      "Weaker flours are preferred as they don&apos;t develop as much gluten",
+      "Shortcrust pastry is used as a base for tarts, quiches, and pies"
+    ],
+    "stats": {
+      "shc_ratio": {
+        "flour": 200,
+        "butter": 100,
+        "water": 15
+      },
+      "target_temperature": 70,
+      "difficulty_class": 15
+    }
+  },
+  "Choux": {
+    "description": [
+      "Choux is a light dough made by combining dough and butter, then folding and rolling out repeatedly",
+      "During cooking the butter melts creating pockets of air, which makes the pastry is light and flaky",
+      "The butter must be kept below 16&deg;C whilst preparing the dough",
+      "Choux pastry is used in French and Spanish dishes like Profiteroles, Eclairs, and Churros"
+    ],
+    "stats": {
+      "shc_ratio": {
+        "flour": 1,
+        "butter": 1,
+        "water": 2
+      },
+      "target_temperature": 80,
+      "difficulty_class": 20
+    }
+  },
+  "Hot Water Crust": {
+    "description": [
+      "Hot Water Crust is a dough made by melting butter in boiling water, the adding flour and kneading",
+      "The dough is then moulded by hand and retains its shape after cooling",
+      "Due to the high water content, hot water crust is capable of holding wet fillings",
+      "Hot Water Crust is used in making dishes like Pork Pies and Game Pies"
+    ],
+    "stats": {
+      "shc_ratio": {
+        "flour": 22,
+        "butter": 9,
+        "water": 9
+      },
+      "target_temperature": 70,
+      "difficulty_class": 10
+    }
+  },
+  "Phyllo": {
+    "description": [
+      "Phllo is a very thin type of dough made by combining flour, water, and oil, then repeatedly stretching and folding",
+      "A large flat surface is required due to how large the stretched pastry becomes",
+      "In pastry-making, the layers are brushed with oil or butter before being folded",
+      "Phyllo pastry is used in Balkan and Middle-Eastern dishes like Baklava and Börek"
+    ],
+    "stats": {
+      "shc_ratio": {
+        "flour": 15,
+        "oil": 10,
+        "water": 5
+      },
+      "target_temperature": 70,
+      "difficulty_class": 25
+    }
+  },
+  "Flaky": {
+    "description": [
+      "Flaky pastry is a simple type of pastry made by mixing together large chunks of butter and flour, then rolling and folding",
+      "The chunks of butter mean that the pastry layers remain separate and become very flaky, hence the name",
+      "Flaky pastry is commonly used for pasties, turnovers, and sausage rolls in place of Puff pastry"
+    ],
+    "stats": {
+      "shc_ratio": {
+        "flour": 10,
+        "butter": 7
+      },
+      "target_temperature": 70,
+      "difficulty_class": 5
+    }
+  }
+}
