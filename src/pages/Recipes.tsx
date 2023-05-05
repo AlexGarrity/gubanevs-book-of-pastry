@@ -63,11 +63,11 @@ export default function Recipes(props: PropsWithChildren) {
 
     async function getRecipes() {
       if (!("recipes" in localStorage)) {
-        updateLocalRecipes();
+        await updateLocalRecipes();
       } else if (
         Number.parseInt(localStorage.getItem("recipes_expiry")) < Date.now()
       ) {
-        updateLocalRecipes();
+        await updateLocalRecipes();
       }
 
       const recipes: RecipeList = JSON.parse(localStorage.getItem("recipes"));

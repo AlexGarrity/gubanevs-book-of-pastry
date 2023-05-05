@@ -73,11 +73,11 @@ export default function Dough() {
 
     async function getDoughs() {
       if (!("doughs" in localStorage)) {
-        updateLocalDoughs();
+        await updateLocalDoughs();
       } else if (
         Number.parseInt(localStorage.getItem("doughs_expiry")) < Date.now()
       ) {
-        updateLocalDoughs();
+        await updateLocalDoughs();
       }
 
       const doughs: DoughsRoot = JSON.parse(localStorage.getItem("doughs"));
