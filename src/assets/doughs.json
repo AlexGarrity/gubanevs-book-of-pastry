@@ -1,5 +1,6 @@
-{
-  "Puff": {
+[
+  {
+    "name": "Puff",
     "description": [
       "Puff is a light dough made by combining flour, water, and butter, then folding and rolling out repeatedly",
       "During cooking the butter melts creating pockets of air, which makes the pastry is light and flaky",
@@ -16,7 +17,8 @@
       "difficulty_class": 15
     }
   },
-  "Shortcrust": {
+  {
+    "name": "Shortcrust",
     "description": [
       "Shortcrust is a thicker dough made by rubbing together butter and flour to create large chunks, then usually shaped",
       "The butter is kept in chunks so that it can melt to create large pockets of air",
@@ -33,7 +35,8 @@
       "difficulty_class": 15
     }
   },
-  "Choux": {
+  {
+    "name": "Choux",
     "description": [
       "Choux is a light dough made by combining dough and butter, then folding and rolling out repeatedly",
       "During cooking the butter melts creating pockets of air, which makes the pastry is light and flaky",
@@ -50,7 +53,8 @@
       "difficulty_class": 20
     }
   },
-  "Hot Water Crust": {
+  {
+    "name": "Hot Water Crust",
     "description": [
       "Hot Water Crust is a dough made by melting butter in boiling water, the adding flour and kneading",
       "The dough is then moulded by hand and retains its shape after cooling",
@@ -67,7 +71,8 @@
       "difficulty_class": 10
     }
   },
-  "Phyllo": {
+  {
+    "name": "Phyllo",
     "description": [
       "Phllo is a very thin type of dough made by combining flour, water, and oil, then repeatedly stretching and folding",
       "A large flat surface is required due to how large the stretched pastry becomes",
@@ -84,7 +89,8 @@
       "difficulty_class": 25
     }
   },
-  "Flaky": {
+  {
+    "name": "Flaky",
     "description": [
       "Flaky pastry is a simple type of pastry made by mixing together large chunks of butter and flour, then rolling and folding",
       "The chunks of butter mean that the pastry layers remain separate and become very flaky, hence the name",
@@ -99,4 +105,4 @@
       "difficulty_class": 5
     }
   }
-}
+]
