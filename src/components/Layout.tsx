@@ -4,8 +4,8 @@ import { Outlet } from 'react-router-dom';
 
 export default function Layout() {
   return (
-    <div className="w-screen h-screen">
-      <div className="container flex flex-1 flex-col p-4 mx-auto h-screen">
+    <div className="w-screen h-screen font-serif">
+      <div className="container flex flex-1 flex-col my-0 mx-auto h-screen">
         <Header></Header>
         <Outlet></Outlet>
       </div>
