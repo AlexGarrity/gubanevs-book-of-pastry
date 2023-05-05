@@ -30,15 +30,15 @@ function DoughCard(dough: DoughDefinition) {
         <CardGrid>
           <CardGridRow>
             <p>Estimated SHC</p>
-            <p>{parseShcRatio(dough.stats.shc_ratio)}</p>
+            <p>{parseShcRatio(dough.stats.shc_ratio)} J/gK</p>
           </CardGridRow>
           <CardGridRow>
             <p>Target Temperature</p>
-            <p>{dough.stats.target_temperature}</p>
+            <p>{dough.stats.target_temperature}&deg;C</p>
           </CardGridRow>
           <CardGridRow>
             <p>Difficulty Class</p>
-            <p>{dough.stats.difficulty_class}</p>
+            <p>DC {dough.stats.difficulty_class}</p>
           </CardGridRow>
         </CardGrid>
       </CardFooter>
