@@ -1,10 +1,8 @@
-import React, { Dispatch, useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 const SEVEN_DAYS_IN_MS = 6.048e8;
 
 export default function GubanevQuote() {
-
-  const [state, setState]: [string[], Dispatch<string[]>] = useState([]);
 
   useEffect(() => {
     async function updateLocalQuotes() {

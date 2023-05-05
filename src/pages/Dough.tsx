@@ -2,7 +2,16 @@ import React, { Dispatch, useEffect, useState } from "react";
 import Card, { CardBody, CardFooter, CardGrid, CardGridRow, CardHeader } from '../components/Card'
 import CalculateSHC from '../lib/CalculateSHC'
 
-import { DoughsRoot, DoughDefinition, Stats, ShcRatio } from '../lib/Dough'
+import { DoughsRoot, DoughDefinition, ShcRatio } from '../lib/Dough'
+
+function parseShcRatio(json: ShcRatio): string {
+  const flour = json.flour ? json.flour : 0;
+  const butter = json.butter ? json.butter : 0;
+  const oil = json.oil ? json.oil : 0;
+  const water = json.water ? json.water : 0;
+
+  return CalculateSHC({ flour: flour, butter: butter, oil: oil, water: water })
+}
 
 function DoughCard(dough: DoughDefinition) {
   return (
@@ -11,7 +20,7 @@ function DoughCard(dough: DoughDefinition) {
         <h1>{dough.name}</h1>
       </CardHeader>
       <CardBody>
-        {dough.description.map((value, index, array) => {
+        {dough.description.map((value: string, index: number) => {
           return (
             <p key={"d" + dough.name + index.toString()}>{value}</p>
           );
@@ -21,12 +30,7 @@ function DoughCard(dough: DoughDefinition) {
         <CardGrid>
           <CardGridRow>
             <p>Estimated SHC</p>
-            <p>{CalculateSHC({
-              butter: dough.stats.shc_ratio.butter,
-              flour: dough.stats.shc_ratio.flour,
-              oil: dough.stats.shc_ratio.oil,
-              water: dough.stats.shc_ratio.water,
-            })}</p>
+            <p>{parseShcRatio(dough.stats.shc_ratio)}</p>
           </CardGridRow>
           <CardGridRow>
             <p>Target Temperature</p>
@@ -48,15 +52,6 @@ export default function Dough() {
   const SEVEN_DAYS_IN_MS = 6.048e8;
 
   useEffect(() => {
-    function parseShcRatio(json: ShcRatio): string {
-      const flour = json.flour ? json.flour : 0;
-      const butter = json.butter ? json.butter : 0;
-      const oil = json.oil ? json.oil : 0;
-      const water = json.water ? json.water : 0;
-
-      return CalculateSHC({ flour: flour, butter: butter, oil: oil, water: water })
-    }
-
     async function updateLocalDoughs() {
       const fetchPromise = await fetch(
         "https://raw.githubusercontent.com/AlexGarrity/gubanevs-book-of-pastry/master/src/assets/doughs.json"
@@ -111,7 +106,7 @@ export default function Dough() {
   return (
     <div id="dough-gallery" className="flex flex-row flex-wrap justify-between mx-auto w-3/4">
       {(state) ?
-        state.map((value: DoughDefinition, index: number, array: DoughsRoot) => {
+        state.map((value: DoughDefinition) => {
           if (value.version) {
             return;
           }

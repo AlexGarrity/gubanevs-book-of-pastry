@@ -79,7 +79,7 @@ export default function Calculator() {
         <p className="flex-grow">Time to cook pastry: </p>
         <p className="flex-grow" id="time-output"></p>
       </div>
-      <form onChange={(event) => { displayCookTime() }} className="flex flex-1 flex-col mt-8 space-y-8">
+      <form onChange={() => { displayCookTime() }} className="flex flex-1 flex-col mt-8 space-y-8">
         <FormCluster title="Game parameters">
           <FormNumericInputBox label="Damage roll" id="roll" max={40} min={1} step={1} defaultValue={20}></FormNumericInputBox>
           <FormNumericInputBox label="Range from pot (in ft)" id="range" max={15} min={1} step={1} defaultValue={5}></FormNumericInputBox>

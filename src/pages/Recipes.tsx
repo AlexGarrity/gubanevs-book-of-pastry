@@ -1,4 +1,4 @@
-import React, { Dispatch, PropsWithChildren, useEffect, useState } from "react";
+import React, { Dispatch, useEffect, useState } from "react";
 
 import Card, { CardBody, CardFooter, CardGrid, CardGridRow, CardHeader } from "../components/Card";
 
@@ -16,7 +16,7 @@ function RecipeCard(recipe: Recipe) {
       <CardFooter>
         <h1 className="text-lg font-bold mb-3">Ingredients</h1>
         <CardGrid>
-          {recipe.ingredients.map((value: string[], index: number, array: string[][]) => {
+          {recipe.ingredients.map((value: string[], index: number) => {
             return (
               <CardGridRow key={"ir" + index.toString()}>
                 <p key={"i" + recipe.name + index.toString() + "1"}>{value[0]}</p>
@@ -27,7 +27,7 @@ function RecipeCard(recipe: Recipe) {
         </CardGrid>
         <h1 className="text-lg font-bold mb-3">Preparation</h1>
         <CardGrid>
-          {recipe.preparation.map((value: string[], index: number, array: string[][]) => {
+          {recipe.preparation.map((value: string[], index: number,) => {
             return (
               <CardGridRow key={"pr" + index.toString()}>
                 <p key={"p" + recipe.name + index.toString() + "1"}>{value[0]}</p>
@@ -41,7 +41,7 @@ function RecipeCard(recipe: Recipe) {
   );
 }
 
-export default function Recipes(props: PropsWithChildren) {
+export default function Recipes() {
 
   const [state, setState]: [state: RecipeList, setState: Dispatch<RecipeList>] = useState([]);
   const SEVEN_DAYS_IN_MS = 6.048e8;
@@ -101,7 +101,7 @@ export default function Recipes(props: PropsWithChildren) {
   return (
     <div className="flex flex-row flex-wrap space-x-8">
       {(state) ?
-        state.map((value: Recipe, index: number, array: RecipeList) => {
+        state.map((value: Recipe) => {
           if (value.version) {
             return;
           }
