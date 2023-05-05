@@ -1,10 +1,13 @@
 [
   {
+    "version": 1
+  },
+  {
     "name": "Puff",
     "description": [
       "Puff is a light dough made by combining flour, water, and butter, then folding and rolling out repeatedly",
       "During cooking the butter melts creating pockets of air, which makes the pastry is light and flaky",
-      "The butter must be kept below 16&deg;C whilst preparing the dough",
+      "The butter must be kept below 16°C whilst preparing the dough",
       "Puff pastry is used in making dishes like Croissants, Sausage Rolls, Pie, Strudel, and Turnovers"
     ],
     "stats": {
@@ -22,7 +25,7 @@
     "description": [
       "Shortcrust is a thicker dough made by rubbing together butter and flour to create large chunks, then usually shaped",
       "The butter is kept in chunks so that it can melt to create large pockets of air",
-      "Weaker flours are preferred as they don&apos;t develop as much gluten",
+      "Weaker flours are preferred as they don't develop as much gluten",
       "Shortcrust pastry is used as a base for tarts, quiches, and pies"
     ],
     "stats": {
@@ -40,7 +43,7 @@
     "description": [
       "Choux is a light dough made by combining dough and butter, then folding and rolling out repeatedly",
       "During cooking the butter melts creating pockets of air, which makes the pastry is light and flaky",
-      "The butter must be kept below 16&deg;C whilst preparing the dough",
+      "The butter must be kept below 16°C whilst preparing the dough",
       "Choux pastry is used in French and Spanish dishes like Profiteroles, Eclairs, and Churros"
     ],
     "stats": {

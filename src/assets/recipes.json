@@ -1,13 +1,17 @@
 [
   {
+    "version": 1
+  },
+  {
     "name": "Faepass Turnover",
     "description": "A delicious regional delicacy made from berries native to Faepass and Faeview",
-    "ingredients": {
-      "Puff Pastry": "80g",
-      "Faeberries": "80g"
-    },
-    "preparation": {
-      "No specific requirements": ""
-    }
+    "ingredients": [
+      ["Puff Pastry", "80g"],
+      ["Faeberries", "80g"]
+    ],
+    "preparation": [
+      ["Additional Requirements", "None"],
+      ["Difficulty Class", "15"]
+    ]
   }
 ]
