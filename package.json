@@ -1,5 +1,6 @@
 {
   "name": "gubanevs-book-of-recipes",
+  "author": {"name": "Alex Garrity"},
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -57,5 +58,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "homepage": "https://alexgarrity.github.io/gubanevs-book-of-pastry/",
 }
