@@ -5,11 +5,11 @@ import Homepage from './pages/Homepage'
 import Calculator from './pages/Calculator'
 import Dough from './pages/Dough'
 import Recipes from './pages/Recipes'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { HashRouter, Route, Routes } from 'react-router-dom'
 
 export default function App (): ReactElement {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Layout></Layout>}>
           <Route index element={<Homepage></Homepage>}></Route>
@@ -18,6 +18,6 @@ export default function App (): ReactElement {
           <Route path="/calculator" element={<Calculator></Calculator>}></Route>
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
