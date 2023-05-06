@@ -1,6 +1,6 @@
 [
   {
-    "version": 1
+    "version": 2
   },
   {
     "name": "Faepass Turnover",
@@ -12,6 +12,11 @@
     "preparation": [
       ["Additional Requirements", "None"],
       ["Difficulty Class", "15"]
-    ]
+    ],
+    "stats": {
+      "shc": 2.7,
+      "mass": 160,
+      "temperature": 70
+    }
   }
 ]
