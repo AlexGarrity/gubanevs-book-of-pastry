@@ -21,3 +21,8 @@ export interface ShcRatio {
   water?: number
   oil?: number
 }
+
+export const EmptyDoughsRoot: DoughsRoot = {
+  version: 0,
+  doughs: []
+}

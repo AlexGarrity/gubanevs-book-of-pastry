@@ -16,3 +16,8 @@ export interface Stats {
   mass: number
   temperature: number
 }
+
+export const EmptyRecipeRoot: RecipeRoot = {
+  version: 0,
+  recipes: []
+}

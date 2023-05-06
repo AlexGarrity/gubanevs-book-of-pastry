@@ -2,7 +2,7 @@ import React, { type Dispatch, useEffect, useState, type ReactElement } from 're
 import Card, { CardBody, CardFooter, CardGrid, CardGridRow, CardHeader } from '../components/Card'
 import CalculateSHC from '../lib/CalculateSHC'
 
-import { type DoughsRoot, type DoughDefinition, type ShcRatio } from '../lib/Dough'
+import { type DoughsRoot, type DoughDefinition, type ShcRatio, EmptyDoughsRoot } from '../lib/Dough'
 
 function parseShcRatio (json: ShcRatio): string {
   const flour = (json.flour != null) ? json.flour : 0
@@ -47,7 +47,8 @@ function DoughCard (dough: DoughDefinition): ReactElement {
 }
 
 export default function Dough (): ReactElement {
-  const [state, setState]: [state: DoughsRoot | undefined, setState: Dispatch<DoughsRoot | undefined>] = useState()
+  const [state, setState]: [state: DoughsRoot, setState: Dispatch<DoughsRoot>] = useState(EmptyDoughsRoot)
+
   const SEVEN_DAYS_IN_MS = 6.048e8
 
   useEffect(() => {
@@ -71,10 +72,7 @@ export default function Dough (): ReactElement {
       }
       const doughsExpiry = localStorage.getItem('doughs_expiry')
       if (doughsExpiry == null) {
-        return {
-          version: 0,
-          doughs: []
-        }
+        return EmptyDoughsRoot
       }
 
       if (Number.parseInt(doughsExpiry) < Date.now()) {
@@ -83,10 +81,7 @@ export default function Dough (): ReactElement {
 
       const doughsJson = localStorage.getItem('doughs')
       if (doughsJson == null) {
-        return {
-          version: 0,
-          doughs: []
-        }
+        return EmptyDoughsRoot
       }
       const doughs: DoughsRoot = JSON.parse(doughsJson)
       return doughs

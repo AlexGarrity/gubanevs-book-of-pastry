@@ -9,13 +9,13 @@ import { HashRouter, Route, Routes } from 'react-router-dom'
 
 export default function App (): ReactElement {
   return (
-    <HashRouter>
+    <HashRouter basename={''}>
       <Routes>
-        <Route path="/" element={<Layout></Layout>}>
-          <Route index element={<Homepage></Homepage>}></Route>
-          <Route path="/dough" element={<Dough></Dough>}></Route>
-          <Route path="/recipes" element={<Recipes></Recipes>}></Route>
-          <Route path="/calculator" element={<Calculator></Calculator>}></Route>
+        <Route path={'/'} element={<Layout />}>
+          <Route index element={<Homepage />}></Route>
+          <Route path={'/dough'} element={<Dough />}></Route>
+          <Route path={'/recipes'} element={<Recipes />}></Route>
+          <Route path={'/calculator'} element={<Calculator />}></Route>
         </Route>
       </Routes>
     </HashRouter>

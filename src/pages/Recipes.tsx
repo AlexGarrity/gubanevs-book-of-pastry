@@ -2,7 +2,7 @@ import React, { type Dispatch, useEffect, useState, type ReactElement } from 're
 
 import Card, { CardBody, CardFooter, CardGrid, CardGridRow, CardHeader } from '../components/Card'
 
-import { type Recipe, type RecipeRoot } from '../lib/Recipe'
+import { EmptyRecipeRoot, type Recipe, type RecipeRoot } from '../lib/Recipe'
 import { Link } from 'react-router-dom'
 
 function RecipeCard (recipe: Recipe): ReactElement {
@@ -45,7 +45,7 @@ function RecipeCard (recipe: Recipe): ReactElement {
 }
 
 export default function Recipes (): ReactElement {
-  const [state, setState]: [state: RecipeRoot | undefined, setState: Dispatch<RecipeRoot | undefined>] = useState()
+  const [state, setState]: [state: RecipeRoot, setState: Dispatch<RecipeRoot>] = useState(EmptyRecipeRoot)
 
   const SEVEN_DAYS_IN_MS = 6.048e8
 
@@ -71,10 +71,7 @@ export default function Recipes (): ReactElement {
 
       const recipesExpiry = localStorage.getItem('recipes_expiry')
       if (recipesExpiry == null) {
-        return {
-          version: 0,
-          recipes: []
-        }
+        return EmptyRecipeRoot
       }
 
       if (Number.parseInt(recipesExpiry) < Date.now()
@@ -84,10 +81,7 @@ export default function Recipes (): ReactElement {
 
       const recipesJson = localStorage.getItem('recipes')
       if (recipesJson == null) {
-        return {
-          version: 0,
-          recipes: []
-        }
+        return EmptyRecipeRoot
       }
 
       const recipes: RecipeRoot = JSON.parse(recipesJson)
@@ -113,11 +107,12 @@ export default function Recipes (): ReactElement {
 
   return (
     <div className="flex flex-row flex-wrap space-x-8">
-      {(state != null)
-        ? state.recipes.map((value: Recipe) => {
-          return RecipeCard(value)
-        })
-        : <svg className="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24"></svg>
+      {
+        (state != null)
+          ? state.recipes.map((value: Recipe) => {
+            return RecipeCard(value)
+          })
+          : <svg className="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24"></svg>
       }
     </div>
   )
