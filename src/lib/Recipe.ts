@@ -6,4 +6,11 @@ export interface Recipe {
   description?: string;
   ingredients?: string[][];
   preparation?: string[][];
+  stats?: Stats;
+}
+
+export interface Stats {
+  shc: number;
+  mass: number;
+  temperature: number;
 }

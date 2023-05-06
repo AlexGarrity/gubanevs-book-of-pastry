@@ -104,15 +104,15 @@ export default function Calculator() {
           <FormNumericInputBox label="Range from pot (in ft)" id="range" max={15} min={1} step={1} defaultValue={5}></FormNumericInputBox>
         </FormCluster>
         <FormCluster title="Mass parameters">
-          <FormNumericInputBox label="Mass of food (in g)" id="mass-food" max={50000} min={0} step={1} defaultValue={107}></FormNumericInputBox>
+          <FormNumericInputBox label="Mass of food (in g)" id="mass-food" max={50000} min={0} step={1} defaultValue={searchParams.get("mass") ? Number.parseFloat(searchParams.get("mass")) : 107}></FormNumericInputBox>
           <FormNumericInputBox label="Mass of cookware (in g)" id="mass-cookware" max={100000} min={0} step={1} defaultValue={4500}></FormNumericInputBox>
         </FormCluster>
         <FormCluster title="Temperature parameters">
           <FormNumericInputBox label="Ambient temperature (in C)" id="temperature-ambient" max={100} min={-273} step={1} defaultValue={20}></FormNumericInputBox>
-          <FormNumericInputBox label="Target temperature (in C)" id="temperature-target" max={200} min={-273} step={1} defaultValue={80}></FormNumericInputBox>
+          <FormNumericInputBox label="Target temperature (in C)" id="temperature-target" max={200} min={-273} step={1} defaultValue={searchParams.get("target_temperature") ? Number.parseFloat(searchParams.get("target_temperature")) : 80}></FormNumericInputBox>
         </FormCluster>
         <FormCluster title="Physics parameters">
-          <FormNumericInputBox label="Specific Heat Capacity of food (in J/gK)" id="shc-food" max={4.5} min={1.0} step={0.05} defaultValue={2.7} initialValue={searchParams.get("shc_food") ? Number.parseFloat(searchParams.get("shc_food")) : 2.7}></FormNumericInputBox>
+          <FormNumericInputBox label="Specific Heat Capacity of food (in J/gK)" id="shc-food" max={4.5} min={1.0} step={0.05} defaultValue={searchParams.get("shc_food") ? Number.parseFloat(searchParams.get("shc_food")) : 2.7}></FormNumericInputBox>
           <FormNumericInputBox label="Specific Heat Capacity of cookware (in J/gK)" id="shc-cookware" max={1.0} min={0.1} step={0.05} defaultValue={0.5}></FormNumericInputBox>
         </FormCluster>
       </form >

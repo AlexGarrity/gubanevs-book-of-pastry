@@ -3,47 +3,53 @@ import React, { Dispatch, useEffect, useState } from "react";
 import Card, { CardBody, CardFooter, CardGrid, CardGridRow, CardHeader } from "../components/Card";
 
 import { Recipe, RecipeList } from '../lib/Recipe'
+import { useSearchParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function RecipeCard(recipe: Recipe) {
   return (
-    <Card key={recipe.name}>
-      <CardHeader>
-        <h1>{recipe.name}</h1>
-      </CardHeader>
-      <CardBody>
-        <p>{recipe.description}</p>
-      </CardBody>
-      <CardFooter>
-        <h1 className="text-lg font-bold mb-3">Ingredients</h1>
-        <CardGrid>
-          {recipe.ingredients.map((value: string[], index: number) => {
-            return (
-              <CardGridRow key={"ir" + index.toString()}>
-                <p key={"i" + recipe.name + index.toString() + "1"}>{value[0]}</p>
-                <p key={"i" + recipe.name + index.toString() + "2"}>{value[1]}</p>
-              </CardGridRow>
-            );
-          })}
-        </CardGrid>
-        <h1 className="text-lg font-bold mb-3">Preparation</h1>
-        <CardGrid>
-          {recipe.preparation.map((value: string[], index: number,) => {
-            return (
-              <CardGridRow key={"pr" + index.toString()}>
-                <p key={"p" + recipe.name + index.toString() + "1"}>{value[0]}</p>
-                <p key={"p" + recipe.name + index.toString() + "2"}>{value[1]}</p>
-              </CardGridRow>
-            );
-          })}
-        </CardGrid>
-      </CardFooter>
-    </Card>
+    <Link to={"/calculator?shc_food=" + recipe.stats.shc + "&mass=" + recipe.stats.mass + "&target_temperature=" + recipe.stats.temperature}>
+      <Card key={recipe.name}>
+        <CardHeader>
+          <h1>{recipe.name}</h1>
+        </CardHeader>
+        <CardBody>
+          <p>{recipe.description}</p>
+        </CardBody>
+        <CardFooter>
+          <h1 className="text-lg font-bold mb-3">Ingredients</h1>
+          <CardGrid>
+            {recipe.ingredients.map((value: string[], index: number) => {
+              return (
+                <CardGridRow key={"ir" + index.toString()}>
+                  <p key={"i" + recipe.name + index.toString() + "1"}>{value[0]}</p>
+                  <p key={"i" + recipe.name + index.toString() + "2"}>{value[1]}</p>
+                </CardGridRow>
+              );
+            })}
+          </CardGrid>
+          <h1 className="text-lg font-bold mb-3">Preparation</h1>
+          <CardGrid>
+            {recipe.preparation.map((value: string[], index: number,) => {
+              return (
+                <CardGridRow key={"pr" + index.toString()}>
+                  <p key={"p" + recipe.name + index.toString() + "1"}>{value[0]}</p>
+                  <p key={"p" + recipe.name + index.toString() + "2"}>{value[1]}</p>
+                </CardGridRow>
+              );
+            })}
+          </CardGrid>
+        </CardFooter>
+      </Card>
+    </Link>
   );
 }
 
 export default function Recipes() {
 
   const [state, setState]: [state: RecipeList, setState: Dispatch<RecipeList>] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+
   const SEVEN_DAYS_IN_MS = 6.048e8;
 
   useEffect(() => {
