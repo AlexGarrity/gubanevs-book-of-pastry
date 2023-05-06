@@ -2,7 +2,12 @@ import React, { useEffect } from "react";
 import FormNumericInputBox from '../components/FormNumericInputBox'
 import FormCluster from '../components/FormCluster'
 
+import { useSearchParams } from "react-router-dom";
+
 export default function Calculator() {
+
+  const [searchParams, setSearchParams] = useSearchParams();
+
   function displayCookTime() {
     const rollElement = document.getElementById("roll") as HTMLInputElement;
     const roll = (rollElement.valueAsNumber != 0) ? rollElement.valueAsNumber : 0.00000001;
@@ -29,7 +34,18 @@ export default function Calculator() {
     const potShc = (potShcElement.valueAsNumber > 0) ? potShcElement.valueAsNumber : 1;
 
     const outputElement = document.getElementById("time-output") as HTMLParagraphElement;
+    const ratingElement = document.getElementById("pastry-rating") as HTMLParagraphElement;
 
+    const QUALITY_TIERS = [
+      "Terrible",
+      "Poor",
+      "Average",
+      "Good",
+      "Great",
+      "Fantastic",
+      "Masterwork",
+      "Legendary",
+    ];
 
     const FT_IN_A_M = 0.3048;
     // Math.PI * (15 * FT_IN_A_M) * (15 * FT_IN_A_M);
@@ -37,18 +53,6 @@ export default function Calculator() {
     const MAX_ROLL = 40;
 
     const MAX_ENERGY_OUTPUT = 1.175E6;
-    // https://www.engineeringtoolbox.com/specific-heat-capacity-food-d_295.html, see flour & butter & water
-    // Butter is 2.72
-    // Flour is 1.59
-    // Water is 4.18
-    // Sugar is 2.89
-
-    // Chocolate is 1.6
-    // Fruit is ~3.6
-    // Meat is ~2.75
-    // Nuts are ~2.15
-
-
 
     // Calculate blast area
     const coneAreaAtGivenRange = Math.PI * (range * FT_IN_A_M) * (range * FT_IN_A_M) * 0.25;
@@ -66,7 +70,18 @@ export default function Calculator() {
       ++prefixIndex;
     }
 
+    const timeDelta = 6 - cookingTime;
+    const timeDeltaPercentage = Math.max(0.0, Math.min(1.0, Math.abs(timeDelta) / 6));
+    const x = (19 / 12) * timeDeltaPercentage - 0.8;
+    const adjustedPercentage = -(x * x * x) + 0.5;
+
+    // https://www.desmos.com/calculator/jgxvwpfrda
+
+    console.log(timeDelta);
+    console.log(timeDeltaPercentage);
+    console.log(adjustedPercentage);
     outputElement.innerText = cookingTime.toPrecision(3) + " " + PREFIXES[prefixIndex];
+    ratingElement.innerText = QUALITY_TIERS[Math.floor(adjustedPercentage * QUALITY_TIERS.length)];
   }
 
   useEffect(() => {
@@ -75,9 +90,13 @@ export default function Calculator() {
 
   return (
     <div className="flex flex-col w-1/2 mx-auto">
-      <div className="flex flex-row flex-grow justify-between my-8 font-bold text-lg text-center">
+      <div className="flex flex-row flex-grow justify-between mt-8 mb-2 font-bold text-lg text-center">
         <p className="flex-grow">Time to cook pastry: </p>
         <p className="flex-grow" id="time-output"></p>
+      </div>
+      <div className="flex flex-row flex-grow justify-between mb-8 font-bold text-lg text-center">
+        <p className="flex-grow">Pastry quality: </p>
+        <p className="flex-grow" id="pastry-rating"></p>
       </div>
       <form onChange={() => { displayCookTime() }} className="flex flex-1 flex-col mt-8 space-y-8">
         <FormCluster title="Game parameters">
@@ -93,7 +112,7 @@ export default function Calculator() {
           <FormNumericInputBox label="Target temperature (in C)" id="temperature-target" max={200} min={-273} step={1} defaultValue={80}></FormNumericInputBox>
         </FormCluster>
         <FormCluster title="Physics parameters">
-          <FormNumericInputBox label="Specific Heat Capacity of food (in J/gK)" id="shc-food" max={4.5} min={1.0} step={0.05} defaultValue={2.7}></FormNumericInputBox>
+          <FormNumericInputBox label="Specific Heat Capacity of food (in J/gK)" id="shc-food" max={4.5} min={1.0} step={0.05} defaultValue={2.7} initialValue={searchParams.get("shc_food") ? Number.parseFloat(searchParams.get("shc_food")) : 2.7}></FormNumericInputBox>
           <FormNumericInputBox label="Specific Heat Capacity of cookware (in J/gK)" id="shc-cookware" max={1.0} min={0.1} step={0.05} defaultValue={0.5}></FormNumericInputBox>
         </FormCluster>
       </form >

@@ -6,11 +6,11 @@ interface NumericInputProps {
   max: number;
   min: number;
   step: number;
-  defaultValue:
-  number;
+  defaultValue: number;
+  initialValue?: number;
 }
 
-export default function FormNumericInputBox({ label, id, max, min, step, defaultValue }: NumericInputProps) {
+export default function FormNumericInputBox({ label, id, max, min, step, defaultValue, initialValue = defaultValue }: NumericInputProps) {
   return (
     <span className="flex flex-row items-center justify-between">
       <p>{label}</p>
@@ -23,6 +23,7 @@ export default function FormNumericInputBox({ label, id, max, min, step, default
           step={step}
           title={label}
           defaultValue={defaultValue}
+          value={initialValue}
           className="border p-1 text-center m-0 border-slate-400 rounded-lg font-bold float-right w-1/2"
         ></input>
       </span>
