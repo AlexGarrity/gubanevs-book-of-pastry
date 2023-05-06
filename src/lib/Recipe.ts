@@ -1,16 +1,18 @@
-export type RecipeList = Recipe[];
+export interface RecipeRoot {
+  version: number
+  recipes: Recipe[]
+}
 
 export interface Recipe {
-  version?: number;
-  name?: string;
-  description?: string;
-  ingredients?: string[][];
-  preparation?: string[][];
-  stats?: Stats;
+  name: string
+  description: string
+  ingredients: string[][]
+  preparation: string[][]
+  stats: Stats
 }
 
 export interface Stats {
-  shc: number;
-  mass: number;
-  temperature: number;
+  shc: number
+  mass: number
+  temperature: number
 }

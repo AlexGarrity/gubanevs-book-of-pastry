@@ -6,7 +6,8 @@
     "target": "ESNext",
     "esModuleInterop": true,
     "jsx": "react-jsx",
-    "moduleResolution": "nodenext"
+    "moduleResolution": "nodenext",
+    "strictNullChecks": true
   },
   "include": ["@*/*", "./src/*"],
   "exclude": ["node_modules"]

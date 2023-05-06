@@ -1,16 +1,23 @@
-import React from "react";
+import React, { type ReactElement } from 'react'
 
 interface NumericInputProps {
-  label: string;
-  id: string;
-  max: number;
-  min: number;
-  step: number;
-  defaultValue: number;
-  initialValue?: number;
+  label: string
+  id: string
+  max: number
+  min: number
+  step: number
+  defaultValue: number
+  initialValue?: number
 }
 
-export default function FormNumericInputBox({ label, id, max, min, step, defaultValue }: NumericInputProps) {
+export default function FormNumericInputBox ({
+  label,
+  id,
+  max,
+  min,
+  step,
+  defaultValue
+}: NumericInputProps): ReactElement {
   return (
     <span className="flex flex-row items-center justify-between">
       <p>{label}</p>
@@ -26,7 +33,6 @@ export default function FormNumericInputBox({ label, id, max, min, step, default
           className="border p-1 text-center m-0 border-slate-400 rounded-lg font-bold float-right w-1/2"
         ></input>
       </span>
-
     </span>
-  );
+  )
 }

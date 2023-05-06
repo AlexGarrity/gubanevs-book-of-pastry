@@ -1,8 +1,8 @@
-import React from "react";
-import GubanevQuote from "../components/GubanevQuote";
-import { Link } from "react-router-dom";
+import React, { type ReactElement } from 'react'
+import GubanevQuote from '../components/GubanevQuote'
+import { Link } from 'react-router-dom'
 
-export default function Homepage() {
+export default function Homepage (): ReactElement {
   return (
     <>
       <GubanevQuote></GubanevQuote>
@@ -26,5 +26,5 @@ export default function Homepage() {
         </Link>
       </div>
     </>
-  );
+  )
 }

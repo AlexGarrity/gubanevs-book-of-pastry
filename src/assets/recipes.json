@@ -1,8 +1,6 @@
-[
-  {
-    "version": 2
-  },
-  {
+{
+  "version": 3,
+  "recipes": {
     "name": "Faepass Turnover",
     "description": "A delicious regional delicacy made from berries native to Faepass and Faeview",
     "ingredients": [
@@ -19,4 +17,4 @@
       "temperature": 90
     }
   }
-]
+}
